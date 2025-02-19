@@ -1,0 +1,43 @@
+
+.table {
+    text-align: center;
+}
+
+.table th {
+    background-color: #343a40;
+    color: white;
+}
+
+.table-success {
+    background-color: #d4edda ;
+}
+
+.table-light {
+    background-color: #f8f9fa ;
+}
+
+.btn-primary {
+    background-color: #007bff;
+    border: none;
+    display: block;
+    margin: 20px auto;  
+    padding: 10px 20px;
+    font-size: 16px;
+}
+
+.btn-primary:hover {
+    background-color: #0056b3;
+    align-items: center;
+}
+
+.btn-warning {
+    color: white;
+}
+
+.modal-header {
+    border-bottom: 2px solid #007bff;
+}
+
+.modal-content {
+    border-radius: 10px;
+}

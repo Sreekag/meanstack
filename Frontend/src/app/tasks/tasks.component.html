@@ -1,0 +1,63 @@
+<div class="jumbotron text-center bg-primary text-white">
+  <h1>Mindful Growth</h1>
+  <p>Track mindfulness habits, reflect, grow daily, and stay consistent!</p>
+</div>
+
+<div class="container mt-4">
+  <button type="button" class="btn btn-primary mb-3" data-toggle="modal" data-target="#myModal" (click)="_id='0';myForm.reset();">
+    + Add an act of kindeness
+  </button>
+
+  <div class="p-3">
+    <table class="table table-bordered table-hover">
+      <thead class="thead-dark">
+        <tr>
+          <th>Act of Kindness</th>
+          <th>Did You Do?</th>
+          <th>Edit</th>
+          <th>Delete if You did</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let task of tasks" [ngClass]="{'table-success': task.complete, 'table-light': !task.complete}">
+          <td>{{ task.task_name }}</td>
+          <td>
+            <span class="badge" [ngClass]="task.complete ? 'badge-success' : 'badge-danger'">
+              {{ task.complete ? 'Yes' : 'No' }}
+            </span>
+          </td>
+          <td>
+            <button class="btn btn-warning btn-sm" data-toggle="modal" data-target="#myModal" (click)="viewTask(task._id)">Edit</button>
+          </td>
+          <td>
+            <button class="btn btn-danger btn-sm" (click)="deleteTask(task._id)">Delete</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header bg-primary text-white">
+        <h5 class="modal-title">Add / Edit Task</h5>
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+      <div class="modal-body">
+        <form #myForm (submit)="addeditTask(_id);reloadpage();myForm.reset();">
+          <div class="form-group">
+            <label>Task Name</label>
+            <input type="text" [(ngModel)]="task_name" name="task_name" class="form-control" required>
+          </div>
+          <div class="form-check">
+            <input type="checkbox" class="form-check-input" [(ngModel)]="complete" name="complete">
+            <label class="form-check-label">Completed?</label>
+          </div>
+          <button type="submit" class="btn btn-success mt-3">Save</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>  
