@@ -1,0 +1,8 @@
+# Node.js
+node_modules/
+.env
+
+# Angular
+client/node_modules/
+client/dist/
+client/.angular/
